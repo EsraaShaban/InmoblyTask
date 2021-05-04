@@ -1,0 +1,67 @@
+// Variables
+@import"../helpers/variables";
+
+// Mixins
+
+// Media Query
+/* XS screen */
+@mixin maxXScreen(){
+  @media #{$xsScreen} {
+    @content;
+  }
+}
+/* Small screen */
+@mixin minSMscreen(){
+  @media #{$smScreen} {
+    @content;
+  }
+}
+/* Medium screen */
+@mixin minMDscreen(){
+  @media #{$mdScreen} {
+    @content;
+  }
+}
+/* Large screen */
+@mixin minLGscreen(){
+  @media #{$lgScreen} {
+    @content;
+  }
+}
+
+// border-radius
+@mixin bRadius($r){
+  @include prefixer(border-radius,$r, webkit moz o ms)
+}
+
+// transition
+@mixin transition($args...){
+  @include prefixer(transition,$args..., webkit moz o ms)
+}
+
+// opacity
+@mixin opacity($value) {
+  zoom:1;
+  $opacityRate: $value*100;
+  filter: alpha(opacity= $opacityRate);
+  opacity: $value;
+}
+
+// prefixer
+@mixin prefixer( $property, $value, $prefixes:()){
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property} : $value;
+  }
+  #{$property}:$value;
+}
+
+// border
+@mixin border($brValue,$brStyle,$brColor) {
+  border: $brValue $brStyle $brColor;
+}
+
+// font
+@mixin font($fontSize,$fontWeight) {
+  font-size:$fontSize;
+  font-weight:$fontWeight;
+}

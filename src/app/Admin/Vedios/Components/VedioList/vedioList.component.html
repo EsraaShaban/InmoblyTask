@@ -1,0 +1,55 @@
+<!-- Vedio List -->
+<section class="list">
+
+  <div *ngIf="model.HasItems">
+    <!-- Table -->
+    <table mat-table [dataSource]="model.vedios" matSort (matSortChange)="model.sortData($event)">
+      <!-- Image -->
+      <ng-container matColumnDef="image">
+        <th width="20%" mat-header-cell *matHeaderCellDef> </th>
+        <td width="20%" mat-cell *matCellDef="let element">
+          <div class="image" [ngStyle]="{'background-image': 'url(' + element.snippet.thumbnails.default.url + ')'}"></div>
+        </td>
+      </ng-container>
+
+      <!-- Title -->
+      <ng-container matColumnDef="title">
+        <th width="40%" mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td width="40%" mat-cell *matCellDef="let element">
+          <span>{{element.snippet.title}}</span>
+        </td>
+      </ng-container>
+
+      <!-- Publish Date -->
+      <ng-container matColumnDef="date">
+        <th width="20%" mat-header-cell *matHeaderCellDef mat-sort-header> Publish Date </th>
+        <td width="20%" mat-cell *matCellDef="let element">
+          <span>{{element.snippet.publishedAt | date: 'dd-MM-yyyy'}}</span>
+        </td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th width="20%" mat-header-cell *matHeaderCellDef></th>
+        <td width="20%" mat-cell *matCellDef="let element">
+          <div class="actions">
+            <!-- Details -->
+            <button (click)="model.toDetails(element)">Details</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="model.displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: model.displayedColumns;"></tr>
+    </table>
+
+    <!-- Pager -->
+    <mat-paginator *ngIf="model.showPager" [length]="model.records" #vedioPager [(pageSize)]="model.pageSize" [hidePageSize]="true" (page)="model.page($event)"> </mat-paginator>
+  </div>
+
+  <div class="noRecords" *ngIf="!model.HasItems">
+    <mat-icon>error</mat-icon>
+    <p>Sorry, No Vedios in this playlist</p>
+  </div>
+
+</section>

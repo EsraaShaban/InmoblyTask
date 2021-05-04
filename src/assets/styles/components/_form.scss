@@ -1,0 +1,23 @@
+// Variables
+@import "../../styles/helpers/variables";
+
+//Mixins
+@import "../../styles/helpers/mixins";
+
+form {
+  .input {
+    margin-bottom: 20px;
+    .mat-form-field {
+      width: 100%;
+      bottom: -10px;
+    }
+    .error {
+      span {
+        color: red;
+        @include font(12px, 400);
+      }
+    }
+  }
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex { background: transparent; }

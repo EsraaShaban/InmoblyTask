@@ -1,0 +1,17 @@
+<!-- Toolbar -->
+<mat-toolbar>
+  <div class="content">
+    <!-- Title -->
+    <div class="logo">
+      <strong>Inmobly</strong>
+    </div>
+
+    <span class="space"></span>
+
+    <!-- Search -->
+    <div class="search" *ngIf="model.hasSearch">
+      <mat-icon (click)="model.search(model.searchValue)">search</mat-icon>
+      <input [placeholder]="model.placeholder" [(ngModel)]="model.searchValue" />
+    </div>
+  </div>
+</mat-toolbar>

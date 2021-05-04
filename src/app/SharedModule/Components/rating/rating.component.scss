@@ -1,0 +1,12 @@
+// Variables
+@import "../../../../assets/styles/helpers/variables";
+
+.rating {
+  mat-icon {
+    cursor: pointer;
+    color: rgba($primaryColor, 0.4);
+    &.filled {
+      color: $primaryColor;
+    }
+  }
+}

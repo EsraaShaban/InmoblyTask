@@ -1,0 +1,41 @@
+// Variables
+@import "../../styles/helpers/variables";
+
+//Mixins
+@import "../../styles/helpers/mixins";
+
+button {
+  background-color: #fff;
+  color: $secondaryColor;
+  text-align: center;
+  border: 1px solid #ddd;
+  @include font(13px, 500);
+  @include bRadius(4px);
+  box-shadow: none;
+  outline: none;
+  padding: 9px 12px;
+  cursor: pointer;
+  @include prefixer(transition, background-color 0.3s ease-in-out, webkit moz o ms);
+  &:focus {
+    outline: none;
+  }
+  &:hover , &.primary {
+    background: $primaryColor;
+    color: #fff;
+    border: 0;
+  }
+  &.mat-paginator-navigation-previous, &.mat-paginator-navigation-next {
+    color: $secondaryColor;
+    background-color: #eee;
+    @include bRadius(4px);
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin: 0 5px;
+    &:hover {
+      background: #eee;
+      color: $secondaryColor;
+      border: 0;
+    }
+  }
+}

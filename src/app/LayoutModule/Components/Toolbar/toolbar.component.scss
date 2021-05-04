@@ -1,0 +1,46 @@
+//Variables
+@import "../../../../assets/styles/helpers/variables";
+
+//Mixins
+@import "../../../../assets/styles/helpers/mixins";
+
+mat-toolbar {
+  background: #fff;
+  height: 80px;
+  @include prefixer(box-shadow, 0 4px 10px 0 rgba(198, 198, 198, 0.14), webkit moz o ms);
+  position: relative;
+  z-index: 99;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    .logo {
+      width: 300px;
+      float: left;
+    }
+    .search {
+      width: 300px;
+      background: #eee;
+      @include bRadius(30px);
+      position: relative;
+      padding: 10px 15px;
+      display: flex;
+      input {
+        border: 0;
+        background: transparent;
+        outline: 0;
+        @include prefixer(box-shadow, none, webkit moz o ms);
+        &:focus {
+          outline: 0;
+        }
+      }
+      mat-icon {
+        color: #aaa;
+        cursor: pointer;
+      }
+    }
+  }
+}

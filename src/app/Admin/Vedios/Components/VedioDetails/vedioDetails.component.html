@@ -1,0 +1,45 @@
+<!-- Details -->
+<div class="details">
+  <!-- Image -->
+  <div class="image" [ngStyle]="{'background-image': 'url(' + model.Image + ')'}"></div>
+  <!-- Info -->
+  <div class="info">
+    <!-- Title -->
+    <div class="title">
+      <h3>{{model.data.snippet.title}}</h3>
+      <span class="space"></span>
+      <button class="primary" (click)="model.setFavourite()">{{model.FavoriteText}}</button>
+    </div>
+    <!-- statistics -->
+    <div class="statistics">
+      <!-- Rating -->
+      <div class="rating">
+        <strong>Rate Now</strong>
+        <rating></rating>
+      </div>
+      <!-- Duration -->
+      <div class="duration">
+        <strong>Duration</strong>
+        <strong class="time">{{model.getDuration()}}</strong>
+      </div>
+      <!-- Counts -->
+      <div class="counts">
+        <!-- Views -->
+        <div class="views">
+          <mat-icon>visibility</mat-icon>
+          <strong>{{model.data.statistics.viewCount}}</strong>
+        </div>
+        <!-- Likes -->
+        <div class="likes">
+          <mat-icon>thumb_up</mat-icon>
+          <strong>{{model.data.statistics.likeCount}}</strong>
+        </div>
+      </div>
+    </div>
+    <!-- Description -->
+    <div class="description">
+      <h4>Published on {{model.data.snippet.publishedAt | date:'mediumDate'}}</h4>
+      <p [innerHTML]="model.data.snippet.description"></p>
+    </div>
+  </div>
+</div>

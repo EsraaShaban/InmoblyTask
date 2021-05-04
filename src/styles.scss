@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Helpers */
+
+//Variables
+@import "assets/styles/helpers/variables";
+
+//Mixins
+@import "assets/styles/helpers/mixins";
+
+/* UI Components */
+//Buttons
+@import "assets/styles/components/buttons";
+
+* { @include prefixer(box-sizing, border-box, webkit moz o ms); }
+body { margin: 0; padding: 0; }
+ul { list-style: none; margin:0; padding: 0; }
+.disFlex { display: flex }
+.space { flex: 1 1 auto; }
+
+body, button, a, span, strong, p, h1, h2, h3, h4, h5, h6, .mat-checkbox, .mat-table, .mat-list-item, .mat-form-field, .mat-card, :host .mat-expansion-panel-content { font-family: $mainFont; }

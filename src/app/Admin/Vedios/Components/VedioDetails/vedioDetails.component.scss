@@ -1,0 +1,96 @@
+// Variables
+@import"../../../../../assets/styles/helpers/variables";
+
+// Mixins
+@import"../../../../../assets/styles/helpers/mixins";
+
+.details {
+  margin-bottom: 20px;
+  .image {
+    height: 380px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .info {
+    .title {
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .statistics {
+      padding: 15px 40px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      @media($xsScreen) {
+        flex-direction: column;
+      }
+      .rating {
+        display: flex;
+        width: 33.333%;
+        @media($xsScreen) {
+          width: 100%;
+          justify-content: center;
+        }
+        strong {
+          padding-right: 15px;
+        }
+      }
+      .duration {
+        width: 33.333%;
+        text-align: center;
+        @media($xsScreen) {
+          width: 100%;
+          margin-top: 7px;
+          margin-bottom: 10px;
+        }
+        strong {
+          &.time {
+            padding-left: 15px;
+            @include font(14px, 500);
+          }
+        }
+      }
+      .counts {
+        width: 33.333%;
+        display: flex;
+        justify-content: flex-end;
+        @media ($xsScreen) {
+          width: 100%;
+          justify-content: center;
+        }
+        .views {
+          display: flex;
+          margin-right: 25px;
+          mat-icon {
+            padding-right: 30px;
+          }
+          strong {
+            @include font(14px, 500);
+            color: $secondaryColor;
+          }
+        }
+        .likes {
+          display: flex;
+          mat-icon {
+            padding-right: 30px;
+          }
+          strong {
+            @include font(14px, 500);
+          }
+        }
+      }
+    }
+    .description {
+      padding: 0 40px;
+      h4 {
+        color: $primaryColor;
+      }
+      p {
+        color: #727272;
+      }
+    }
+  }
+}

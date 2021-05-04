@@ -1,0 +1,7 @@
+<!-- Toolbar -->
+<toolbar [hasSearch]="model.hasSearch" (onSearch)="model.search($event)"></toolbar>
+
+<!-- Content -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
